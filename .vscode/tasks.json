@@ -1,0 +1,49 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "1. Compile",
+            "command": "C:\\Program Files\\mingw64\\bin\\g++.exe",
+            "args": [
+                "-std=c++17",
+                "-Wall",
+                "-I${workspaceFolder}/include",
+                "${workspaceFolder}/src/document.cpp",
+                "${workspaceFolder}/src/tokenizer.cpp",
+                "${workspaceFolder}/src/tfidf.cpp",
+                "${workspaceFolder}/src/main.cpp",
+                "${workspaceFolder}/src/search_engine.cpp",
+                "-o",
+                "${workspaceFolder}/search_engine.exe"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/src"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ]
+        },
+        {
+            "type": "shell",
+            "label": "2. Build and Run",
+            "command": "${workspaceFolder}/search_engine.exe",
+            "options": {
+                "cwd": "${workspaceFolder}/src"
+            },
+            "dependsOn": [
+                "1. Compile"
+            ],
+            "dependsOrder": "sequence",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared",
+                "clear": true
+            },
+        }
+    ]
+}
